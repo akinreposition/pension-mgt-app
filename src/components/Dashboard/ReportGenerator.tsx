@@ -22,6 +22,7 @@ const ReportGenerator: React.FC = () => {
     // State for date range selection
     const [startDate, setStartDate] = useState<string>('');
     const [endDate, setEndDate] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
 
     // Filter dummy data based on selected date range
     const filteredData = useMemo<DataItem[]>(() => {
@@ -59,6 +60,7 @@ const ReportGenerator: React.FC = () => {
     const handleDownloadPDF = async (): Promise<void> => {
         if (!reportRef.current) return;
         try {
+            setLoading(true);
             const canvas = await html2canvas(reportRef.current);
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'mm', 'a4');
@@ -69,6 +71,8 @@ const ReportGenerator: React.FC = () => {
             toast.success('PDF downloaded successfully.');
         } catch (error) {
             toast.error('Failed to export PDF.');
+        } finally {
+            setTimeout(() => setLoading(false), 30000);
         }
     };
 
@@ -80,7 +84,7 @@ const ReportGenerator: React.FC = () => {
     };
 
     return (
-        <div className="p-4 bg-white rounded shadow">
+        <div className="mt-4 p-4 bg-white rounded shadow">
             <h2 className="text-xl font-bold mb-4">Generate Report</h2>
 
             {/* Date Range Selection */}
@@ -149,9 +153,10 @@ const ReportGenerator: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-4">
                 <button
                     onClick={handleDownloadPDF}
-                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                    className={`bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ${loading ? 'animate-pulse' : ''}`}
+                    disabled={loading}
                 >
-                    Download PDF
+                    {loading ? 'Generating PDF...' : 'Download PDF'}
                 </button>
                 <button
                     onClick={handleShareReport}

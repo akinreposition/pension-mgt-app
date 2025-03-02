@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/authSlice';
+import { toast } from 'react-toastify';
 
 const SESSION_TIMEOUT = 3600000; // e.g., 1 hour in milliseconds
 
@@ -18,7 +19,7 @@ export const useSession = () => {
           dispatch(logout());
           localStorage.removeItem('authToken');
           localStorage.removeItem('sessionStart');
-          alert('Your session has expired. Please log in again.');
+          toast.info('Your session has expired. Please log in again.');
         }
       }
     }

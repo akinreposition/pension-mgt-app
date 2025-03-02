@@ -43,13 +43,13 @@ const NotificationCenter: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       addNotification('Contribution status updated to approved.');
-    }, 15000); // every 15 seconds
+    }, 150000); // every 15 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="p-4 bg-white rounded shadow max-w-lg mx-auto">
+    <div className="mt-4 p-4 bg-white rounded shadow max-w-lg mx-auto">
       <h2 className="text-xl font-bold mb-4">Notification Center</h2>
 
       {/* Email Notification Preference */}
