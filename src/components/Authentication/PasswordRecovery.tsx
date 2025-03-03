@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const PasswordRecovery = () => {
@@ -12,8 +12,13 @@ const PasswordRecovery = () => {
 
     try {
       // Replace with your actual password recovery API endpoint
-      await axios.post('/api/auth/recover-password', { email });
+      // await axios.post('/api/auth/recover-password', { email });
+      
       toast.success('Recovery email sent. Please check your inbox.');
+      setTimeout(() => {
+        // Replace with your actual routing logic
+        window.location.href = '/login';
+      }, 20000);
     } catch (error) {
       toast.error('Error sending recovery email. Please try again.');
     } finally {
@@ -33,14 +38,14 @@ const PasswordRecovery = () => {
             placeholder="email@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-green-500"
             required
           />
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          className="w-full bg-green-300 text-white py-2 rounded hover:bg-green-600"
         >
           {loading ? 'Sending...' : 'Send Recovery Email'}
         </button>

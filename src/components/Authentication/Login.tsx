@@ -45,7 +45,7 @@ const Login = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-green-500"
             required
           />
         </div>
@@ -56,7 +56,7 @@ const Login = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-green-500"
             required
           />
         </div>
@@ -66,14 +66,14 @@ const Login = () => {
           <p>
             Login as 
             <span 
-              className={`mx-4 cursor-pointer ${role === 'admin' ? 'text-blue-500 font-semibold' : 'text-gray-500'}`} 
+              className={`mx-4 cursor-pointer ${role === 'admin' ? 'text-green-500 font-semibold' : 'text-gray-500'}`} 
               onClick={() => setRole('admin')}
             >
               Admin
             </span> 
             or 
             <span 
-              className={`ml-4 cursor-pointer ${role === 'member' ? 'text-blue-500 font-semibold' : 'text-gray-500'}`} 
+              className={`ml-4 cursor-pointer ${role === 'member' ? 'text-green-500 font-semibold' : 'text-gray-500'}`} 
               onClick={() => setRole('member')}
             >
               Member
@@ -83,14 +83,14 @@ const Login = () => {
 
         <button 
           type="submit" 
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+          className="w-full bg-green-300 text-white py-2 rounded hover:bg-green-600 disabled:bg-gray-400"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Logging in...' : 'Login'}
         </button>
 
         <div className="text-center mt-4">
-          <Link to="/password-recovery" className="text-blue-500 hover:underline">
+          <Link to="/password-recovery" className="text-green-500 hover:underline">
             Forgot Password?
           </Link>
         </div>

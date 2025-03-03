@@ -23,7 +23,7 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ avatar }) => {
     <div className="flex flex-col items-center mb-4">
       <label className="cursor-pointer">
         <img
-          src={preview || "/default-avatar.png"}
+          src={preview || "https://www.pexels.com/photo/grayscale-photography-of-man-wearing-coat-25733/"}
           alt="Profile"
           className="w-24 h-24 rounded-full object-cover border"
         />

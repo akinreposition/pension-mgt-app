@@ -1,10 +1,11 @@
 import React, { Suspense, lazy, JSX } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-const Login = lazy(() => import('../components/Authentication/Login'));
-const PasswordRecovery = lazy(() => import('../components/Authentication/PasswordRecovery'));
-const MemberDashboard = lazy(() => import('../components/Dashboard/MemberDashboard'));
-const AdminDashboard = lazy(() => import('../components/Dashboard/AdminDashboard'));
+const Login = lazy(() => import('../components/authentication/Login'));
+const PasswordRecovery = lazy(() => import('../components/authentication/PasswordRecovery'));
+const MemberDashboard = lazy(() => import('../components/dashboard/MemberDashboard'));
+const AdminDashboard = lazy(() => import('../components/dashboard/AdminDashboard'));
+const ProfileScreen = lazy(()=> import('../components/profile/ProfileScreen'))
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const token = localStorage.getItem('authToken');
@@ -34,6 +35,7 @@ const AppRoutes = () => {
               </ProtectedRoute>
             }
           />
+            <Route path="/profile" element={<ProfileScreen />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Suspense>
