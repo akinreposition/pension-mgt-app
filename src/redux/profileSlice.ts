@@ -8,16 +8,24 @@ interface ProfileState {
   dateOfBirth: string;
   password: string;
   avatar: string | null;
+  nextOfKinName: string;
+  nextOfKinPhone: string;
+  employerName: string;
+  employerAddress: string;
 }
 
 const initialState: ProfileState = {
-  firstName: "John",
-  lastName: "Doe",
-  email: "johndoe@example.com",
+  firstName: "Akin",
+  lastName: "Odeku",
+  email: "odekuakinlolu@gmail.com",
   phoneNumber: "+123456789",
   dateOfBirth: "1990-01-01",
   password: "",
   avatar: null, // Default avatar will be handled in UI
+  nextOfKinName: "Amaka John",
+  nextOfKinPhone: "+987654321",
+  employerName: "NLPC PFA",
+  employerAddress: "123 Anthony, Ikorodu Road Lagos Nigeria",
 };
 
 const profileSlice = createSlice({

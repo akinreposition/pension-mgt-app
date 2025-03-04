@@ -25,7 +25,7 @@ const ContributionManager: React.FC = () => {
         setLoading(true);
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 30000);
+        }, 10000);
         return () => clearTimeout(timer);
     }, []);
 
@@ -123,7 +123,7 @@ const ContributionManager: React.FC = () => {
                                     id="date"
                                     value={date}
                                     onChange={(e) => setDate(e.target.value)}
-                                    className="mt-1 block w-full border-gray-300 rounded-md"
+                                    className="mt-1 block w-full !border-gray-300 rounded-md"
                                     required
                                 />
                             </div>
