@@ -71,9 +71,12 @@ pension-management-app/
    
    ```bash
    cd pension-mgt-app
+   ```
 
    ```bash
    npm install
+   ```
 
    ```bash
    npm start
+   ```
