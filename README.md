@@ -20,7 +20,12 @@ pension-management-app/
 │   │   │   ├── Login.tsx
 │   │   │   └── PasswordRecovery.tsx
 │   │   ├── Dashboard/
+│   │   │   └── AdminDashboard.tsx
+│   │   │   └── ContributionManager.tsx
 │   │   │   └── MemberDashboard.tsx
+│   │   │   └── ReportGenerator.tsx
+│   │   ├── navigation/
+│   │   │   └── Navbar.tsx
 │   │   ├── ContributionManagement/
 │   │   │   ├── ContributionForm.tsx
 │   │   │   └── ContributionHistory.tsx
@@ -28,10 +33,15 @@ pension-management-app/
 │   │   │   ├── StatementGenerator.tsx
 │   │   │   └── BenefitProjection.tsx
 │   │   └── Notification/
-│   │       └── NotificationCenter.tsx
+│   │   |   └── NotificationCenter.tsx
+│   │   ├── profile/
+│   │   │   ├── ProfileAvatar.tsx
+│   │   │   └── ProfileScreen.tsx
 │   ├── hooks/
 │   │   ├── useAuth.ts
 │   │   └── useContributions.ts
+│   ├── models/
+│   │   └── index.ts
 │   ├── redux/
 │   │   ├── store.ts
 │   │   ├── authSlice.ts
@@ -57,4 +67,11 @@ pension-management-app/
    ```bash
    git clone https://github.com/akinreposition/pension-mgt-app.git
    
+   ```bash
    cd pension-mgt-app
+
+   ```bash
+   npm install
+
+   ```bash
+   npm start

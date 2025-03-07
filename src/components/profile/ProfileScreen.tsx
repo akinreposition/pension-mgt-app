@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProfileAvatar from "./ProfileAvatar";
 import useProfileForm from "../../hooks/useProfileForm"; // Update path based on your project
 import { RootState } from "../../redux/store"; // Update path based on your project
+import { updateProfile } from "../../redux/profileSlice"; // Update path based on your project
 
 const ProfileScreen: React.FC = () => {
+  const dispatch = useDispatch();
   const profile = useSelector((state: RootState) => state.profile);
   const contributions = useSelector((state: RootState) => state.contributions);
 
@@ -21,6 +23,20 @@ const ProfileScreen: React.FC = () => {
     employerName: profile.employerName,
     employerAddress: profile.employerAddress,
   });
+
+  const handleAvatarChangeWithDispatch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleAvatarChange(event);
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (typeof reader.result === 'string') {
+          dispatch(updateProfile({ avatar: reader.result }));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -78,7 +94,7 @@ const ProfileScreen: React.FC = () => {
           <input
             type="file"
             name="avatar"
-            onChange={handleAvatarChange}
+            onChange={handleAvatarChangeWithDispatch}
             className="w-full p-2 border border-gray-300 rounded"
           />
 

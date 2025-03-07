@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const profileImage = useSelector((state: RootState) => state.profile.avatar);
-
+  console.log('profile img',profileImage);
   return (
     <nav className="bg-white shadow px-4 py-2 flex items-center justify-between">
       {/* Brand or Logo */}
