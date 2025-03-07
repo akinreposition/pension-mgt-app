@@ -58,14 +58,16 @@ pension-management-app/
 ├── tsconfig.json
 ├── package.json
 └── README.md
-
+```
 
 ## Setup Instructions
 
 1. **Clone the repository:**
 
    ```bash
+   
    git clone https://github.com/akinreposition/pension-mgt-app.git
+   ```
    
    ```bash
    cd pension-mgt-app
