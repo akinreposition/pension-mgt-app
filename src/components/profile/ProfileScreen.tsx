@@ -133,7 +133,7 @@ const ProfileScreen: React.FC = () => {
         <ul className="list-disc list-inside">
           {Array.isArray(contributions) && contributions.slice(0, 5).map((contribution, index) => (
             <li key={index} className="text-sm text-gray-700">
-              {contribution.date}: ${contribution.amount}
+              {contribution.date}: ₦{contribution.amount}
             </li>
           ))}
         </ul>

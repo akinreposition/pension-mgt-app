@@ -12,7 +12,38 @@ interface ContributionsState {
 }
 
 const initialState: ContributionsState = {
-  contributions: [],
+  contributions: [
+    {
+      id: '1',
+      date: '2025-01-15',
+      amount: 5000,
+      type: 'mandatory',
+    },
+    {
+      id: '2',
+      date: '2025-02-10',
+      amount: 3000,
+      type: 'voluntary',
+    },
+    {
+      id: '3',
+      date: '2025-03-05',
+      amount: 7000,
+      type: 'mandatory',
+    },
+    {
+      id: '4',
+      date: '2025-04-20',
+      amount: 4000,
+      type: 'voluntary',
+    },
+    {
+      id: '5',
+      date: '2025-05-25',
+      amount: 6000,
+      type: 'mandatory',
+    },
+  ],
 };
 
 const contributionsSlice = createSlice({

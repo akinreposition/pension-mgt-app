@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NotificationCenter from '../notification/NotificationCenter';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 // Simple SVG for the bell icon (you can replace with your own or FontAwesome)
 const BellIcon = () => (
@@ -30,9 +32,11 @@ const DefaultAvatar = () => (
       <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
     </svg>
 );
+
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
+  const profileImage = useSelector((state: RootState) => state.profile.avatar);
 
   return (
     <nav className="bg-white shadow px-4 py-2 flex items-center justify-between">
@@ -63,7 +67,11 @@ const Navbar: React.FC = () => {
           className="w-8 h-8 rounded-full cursor-pointer"
           onClick={() => navigate('/profile')}
         >
-          <DefaultAvatar />
+          {profileImage ? (
+            <img src={profileImage} alt="Profile" className="w-full h-full rounded-full" />
+          ) : (
+            <DefaultAvatar />
+          )}
         </div>
       </div>
     </nav>

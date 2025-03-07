@@ -29,6 +29,13 @@ const ContributionManager: React.FC = () => {
         return () => clearTimeout(timer);
     }, []);
 
+    const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/,/g, '');
+        if (!isNaN(Number(value))) {
+            setAmount(Number(value).toLocaleString());
+        }
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -41,7 +48,7 @@ const ContributionManager: React.FC = () => {
         }
 
         // Validate that the amount is a positive decimal.
-        const amountValue = parseFloat(amount);
+        const amountValue = parseFloat(amount.replace(/,/g, ''));
         if (isNaN(amountValue) || amountValue <= 0) {
             toast.error("Please enter a valid contribution amount.");
             return;
@@ -123,7 +130,7 @@ const ContributionManager: React.FC = () => {
                                     id="date"
                                     value={date}
                                     onChange={(e) => setDate(e.target.value)}
-                                    className="mt-1 block w-full !border-gray-300 rounded-md"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md h-10 p-2"
                                     required
                                 />
                             </div>
@@ -132,12 +139,11 @@ const ContributionManager: React.FC = () => {
                                     Amount
                                 </label>
                                 <input 
-                                    type="number" 
-                                    step="0.01"
+                                    type="text" 
                                     id="amount"
                                     value={amount}
-                                    onChange={(e) => setAmount(e.target.value)}
-                                    className="mt-1 block w-full border-gray-300 rounded-md"
+                                    onChange={handleAmountChange}
+                                    className="mt-1 block w-full border border-gray-300 rounded-md h-10 p-2"
                                     required
                                 />
                             </div>
@@ -149,7 +155,7 @@ const ContributionManager: React.FC = () => {
                                     id="type"
                                     value={contributionType}
                                     onChange={(e) => setContributionType(e.target.value as ContributionType)}
-                                    className="mt-1 block w-full border-gray-300 rounded-md"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md h-10 p-2"
                                 >
                                     <option value="mandatory">Mandatory</option>
                                     <option value="voluntary">Voluntary</option>
@@ -200,7 +206,7 @@ const ContributionManager: React.FC = () => {
                                 {filteredContributions.map((c) => (
                                     <tr key={c.id}>
                                         <td className="px-4 py-2">{c.date}</td>
-                                        <td className="px-4 py-2">${c.amount.toFixed(2)}</td>
+                                        <td className="px-4 py-2">₦{c.amount.toLocaleString()}</td>
                                         <td className="px-4 py-2">
                                             <span
                                                 className={`px-2 py-1 rounded text-white ${

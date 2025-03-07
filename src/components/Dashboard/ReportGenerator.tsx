@@ -132,11 +132,11 @@ const ReportGenerator: React.FC = () => {
                 <div className="mt-4">
                     <p>
                         Total Contributions:{' '}
-                        <span className="font-bold">${totalContributions.toFixed(2)}</span>
+                        <span className="font-bold">₦{totalContributions.toFixed(2)}</span>
                     </p>
                     <p>
                         Projected Benefit:{' '}
-                        <span className="font-bold">${benefitProjection.toFixed(2)}</span>
+                        <span className="font-bold">₦{benefitProjection.toFixed(2)}</span>
                     </p>
                 </div>
 
@@ -145,7 +145,7 @@ const ReportGenerator: React.FC = () => {
                     <h4 className="text-md font-semibold">Benefit Projection Calculator</h4>
                     <p>
                         Based on your contributions, your projected benefit is estimated to be{' '}
-                        <span className="font-bold">${benefitProjection.toFixed(2)}</span>.
+                        <span className="font-bold">₦{benefitProjection.toFixed(2)}</span>.
                     </p>
                 </div>
             </div>
