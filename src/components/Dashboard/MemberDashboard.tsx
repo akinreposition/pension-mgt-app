@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navigation/Navbar';
-import ContributionManager from '../dashboard/ContributionManager';
+import ContributionManager from '../Dashboard/ContributionManager';
 import ReportGenerator from './ReportGenerator';
 
 const MemberDashboard = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NotificationCenter from '../notification/NotificationCenter';
+import NotificationCenter from '../Notification/NotificationCenter';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 

@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import authReducer from '../redux/authSlice'; // Adjust the path as needed
-import Login from '../components/authentication/Login';
+import Login from '../components/Authentication/Login';
 import thunk from 'redux-thunk';
 
 interface State {} // Define your state interface as needed
